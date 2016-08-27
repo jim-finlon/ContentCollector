@@ -1,5 +1,6 @@
 ﻿{
   "dependencies": {
+    "Microsoft.Azure.Mobile.Client.SQLiteStore": "2.1.1",
     "Microsoft.NETCore.UniversalWindowsPlatform": "5.0.0",
     "Newtonsoft.Json": "9.0.1",
     "SQLitePCL": "3.8.7.2",

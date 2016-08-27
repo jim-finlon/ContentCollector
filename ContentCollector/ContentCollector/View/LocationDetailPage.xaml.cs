@@ -6,6 +6,7 @@ namespace ContentCollector.View
     {
         public LocationDetailPage()
         {
+            Title = "Location Detail Page";
             InitializeComponent();
 
         }
