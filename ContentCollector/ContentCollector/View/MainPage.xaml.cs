@@ -13,5 +13,15 @@ namespace ContentCollector
         {
             InitializeComponent();
         }
+
+        private void OnListLocations(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void OnAddLocation(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
