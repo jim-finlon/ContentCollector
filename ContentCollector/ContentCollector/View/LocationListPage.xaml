@@ -2,5 +2,40 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ContentCollector.View.LocationListPage">
-  <Label Text="{Binding MainText}" VerticalOptions="Center" HorizontalOptions="Center" />
+
+  <ScrollView>
+    <StackLayout Orientation="Vertical">
+
+      <ListView x:Name="ListLocations" ItemsSource="{Binding .}" ItemTapped="OnLocationSelected" HasUnevenRows="True">
+
+        <ListView.ItemTemplate>
+          <DataTemplate>
+            <ViewCell>
+              <ViewCell.View>
+                
+                <StackLayout Padding="20" MinimumHeightRequest="100">
+                  
+                  <StackLayout>
+                    <Label Text="{Binding Name}" FontSize="20"></Label>
+                  </StackLayout>
+                  
+                  <StackLayout>
+                    <Label Text="{Binding Latitude}" FontSize="15" TextColor="Blue"></Label>
+                    <Label Text="{Binding Longitude}" FontSize="15" TextColor="Blue"></Label>
+                    <Label Text="{Binding Altitude}" FontSize="15" TextColor="Green"></Label>
+                  </StackLayout>
+                  
+                </StackLayout>
+                
+              </ViewCell.View>
+            </ViewCell>
+          </DataTemplate>
+        </ListView.ItemTemplate>
+        
+      </ListView>
+      
+    </StackLayout>
+  </ScrollView>
+
+
 </ContentPage>

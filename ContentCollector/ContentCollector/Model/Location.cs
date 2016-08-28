@@ -7,7 +7,6 @@ namespace ContentCollector.Model
     {
         [JsonProperty(PropertyName = "id")]
         public string Id { get; set; }
-
         public string Name { get; set; }
         public string Notes { get; set; }
         public double Latitude { get; set; }

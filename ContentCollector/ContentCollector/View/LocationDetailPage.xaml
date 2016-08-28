@@ -3,4 +3,51 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ContentCollector.View.LocationDetailPage">
   <Label Text="{Binding MainText}" VerticalOptions="Center" HorizontalOptions="Center" />
+
+  <ScrollView>
+    <StackLayout Orientation="Vertical">
+
+      <Label Text="{Binding Id}"></Label>
+
+      <Entry x:Name="EntryName"
+             Text="{Binding Name}"
+             HorizontalOptions="FillAndExpand"
+             Placeholder="Name">
+      </Entry>
+
+      <Entry x:Name="EntryLatitude"
+             Text="{Binding Latitude}"
+             HorizontalOptions="FillAndExpand"
+             Placeholder="Latitude">
+      </Entry>
+
+      <Entry x:Name="EntryLongitude"
+             Text="{Binding Longitude}"
+             HorizontalOptions="FillAndExpand"
+             Placeholder="Longitude">
+      </Entry>
+
+      <Entry x:Name="EntryAltitude"
+             Text="{Binding Altitude}"
+             HorizontalOptions="FillAndExpand"
+             Placeholder="Altitude">
+      </Entry>
+
+      <Entry x:Name="EntryGeoLocation"
+             Text="{Binding GeoLocation}"
+             HorizontalOptions="FillAndExpand"
+             Placeholder="Geo Loc">
+      </Entry>
+
+      <Label Text="Notes"></Label>
+      <Editor x:Name="EditorNoates"
+              HorizontalOptions="FillAndExpand"
+              HeightRequest="100"
+              Text="{Binding Notes}">
+      </Editor>
+
+    </StackLayout>
+
+  </ScrollView>
+
 </ContentPage>
