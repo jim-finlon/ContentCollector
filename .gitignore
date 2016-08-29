@@ -244,4 +244,4 @@ ModelManifest.xml
 # FAKE - F# Make
 .fake/
 
-ContentCollector/ContentCollector/Model/Constants.cs
+**/Constants.cs
