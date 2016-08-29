@@ -13,7 +13,6 @@ namespace ContentCollector.Model
         public double Longitude { get; set; }
         public double Altitude { get; set; }
         public string Geolocation { get; set; }
-        public DateTime CreatedTimeStamp { get; set; }
 
     }
 }

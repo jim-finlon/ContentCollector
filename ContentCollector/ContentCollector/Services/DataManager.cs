@@ -24,6 +24,7 @@ namespace ContentCollector.Services
 
         public DataManager()
         {
+            ReadOnlyCollection<MobileServiceTableOperationError> syncErrors = null;
             try
             {
                 _client = new MobileServiceClient(Constants.ApplicationUrl);
@@ -37,10 +38,31 @@ namespace ContentCollector.Services
 
                 _locationTable.PullAsync(null, _locationTable.CreateQuery());
             }
+
+            catch (MobileServiceInvalidOperationException ioe)
+            {
+                Debug.WriteLine(ioe.Message);
+            }
+
+            catch (MobileServicePushFailedException exc)
+            {
+                if (exc.PushResult != null)
+                {
+                    syncErrors = exc.PushResult.Errors;
+                }
+            }
+
             catch (Exception ex)
             {
                 Debug.WriteLine(ex.Message);
-                throw;
+            }
+
+            if (syncErrors != null)
+            {
+                foreach (var error in syncErrors)
+                {
+                    Debug.WriteLine(@"Error executing sync opertation. Item: {0} ({1}). Operation discarded.", error.TableName, error.Item["id"]);
+                }
             }
         }
 

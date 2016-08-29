@@ -64,7 +64,7 @@ namespace ContentCollector.Services
         {
             var locator = CrossGeolocator.Current;
             locator.DesiredAccuracy = 100;
-            return await locator.GetPositionAsync(timeoutMilliseconds: 5000);
+            return await locator.GetPositionAsync(timeoutMilliseconds: 10000);
 
         }
     }

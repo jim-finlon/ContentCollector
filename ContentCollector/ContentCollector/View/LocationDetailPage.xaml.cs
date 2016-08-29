@@ -38,34 +38,27 @@ namespace ContentCollector.View
 
         private async void OnGetCurrentLocation(object sender, EventArgs e)
         {
+            BindingContext = null;
+
             //Get Current Location
             var geoService = new GeoCodingService();
 
             var results = await geoService.GetCurrentLocation();
 
-            var latitude = results.Latitude;
-            var longitude = results.Longitude;
-            var altitude = results.Altitude;
+            vm.Latitude = results.Latitude;
+            vm.Longitude = results.Longitude;
+            vm.Altitude = results.Altitude;
 
             //Reverse GeoCode Results
             var reverseResults = await geoService.ReverseGeoCodePosition(results.Latitude, results.Longitude);
 
-            var geoLoc = reverseResults.FirstOrDefault();
+            vm.Geolocation = reverseResults.FirstOrDefault();
 
-            vm.Geolocation = geoLoc ?? string.Empty;
-            vm.Latitude = latitude;
-            vm.Longitude = longitude;
-            vm.Altitude = altitude;
-
-
-            vm.Name = geoLoc ?? DateTime.UtcNow.ToString();
-
-
-            if (vm.Id == null)
+            if (vm.Name == null)
             {
-                vm.CreatedTimeStamp = DateTime.UtcNow;
+                vm.Name = vm.Geolocation;
             }
-
+   
             await _dataManager.SaveLocationAsync(vm);
 
             BindingContext = vm;

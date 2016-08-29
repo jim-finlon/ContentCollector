@@ -11,11 +11,13 @@
     <Button
       x:Name="btnListLocations"
       Text="List Locations"
-      Clicked="OnListLocations"></Button>
+      Clicked="OnListLocations"
+      HorizontalOptions="FillAndExpand"></Button>
     
     <Button x:Name="btnAddLocation"
             Text="AddLocation"
-            Clicked="OnAddLocation"></Button>
+            Clicked="OnAddLocation"
+            HorizontalOptions="FillAndExpand"></Button>
     
   </StackLayout>
   
