@@ -8,7 +8,7 @@ using Microsoft.WindowsAzure.MobileServices;
 using Microsoft.WindowsAzure.MobileServices.SQLiteStore;
 using Microsoft.WindowsAzure.MobileServices.Sync;
 
-namespace ContentCollector
+namespace ContentCollector.Services
 {
     public class DataManager
     {
@@ -30,6 +30,7 @@ namespace ContentCollector
 
                 var store = new MobileServiceSQLiteStore("localstore.db");
                 store.DefineTable<Location>();
+
                 _client.SyncContext.InitializeAsync(store);
 
                 _locationTable = _client.GetSyncTable<Location>();
