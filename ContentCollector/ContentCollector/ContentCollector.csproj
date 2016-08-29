@@ -38,6 +38,8 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Model\Constants.cs" />
+    <Compile Include="Model\Secrets.cs" />
     <Compile Include="Services\DataManager.cs" />
     <Compile Include="Services\GeoCodingService.cs" />
     <Compile Include="Services\IGeoCodingService.cs" />
@@ -50,7 +52,6 @@
     <Compile Include="View\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Model\Constants.cs" />
     <Compile Include="Model\Location.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

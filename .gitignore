@@ -244,4 +244,4 @@ ModelManifest.xml
 # FAKE - F# Make
 .fake/
 
-**/Constants.cs
+**/Secrets.cs
