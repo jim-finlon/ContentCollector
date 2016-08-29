@@ -50,7 +50,7 @@ namespace ContentCollector.UWP
                 rootFrame.NavigationFailed += OnNavigationFailed;
 
                 Xamarin.Forms.Forms.Init(e);
-                Xamarin.FormsMaps.Init(Constants.GoogleMapsApiToken);
+                Xamarin.FormsMaps.Init(Constants.BingMapsApiToken);
 
                 if (e.PreviousExecutionState == ApplicationExecutionState.Terminated)
                 {
