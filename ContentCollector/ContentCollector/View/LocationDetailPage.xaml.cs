@@ -3,6 +3,7 @@ using System.Linq;
 using ContentCollector.Model;
 using ContentCollector.Services;
 using Xamarin.Forms;
+using Xamarin.Forms.Maps;
 
 namespace ContentCollector.View
 {
@@ -28,6 +29,7 @@ namespace ContentCollector.View
             BindingContext = vm;
             Title = vm.Name;
             InitializeComponent();
+            SetMap(location.Latitude, location.Longitude);
         }
 
         private async void OnSaveLocation(object sender, EventArgs e)
@@ -63,6 +65,13 @@ namespace ContentCollector.View
 
             BindingContext = vm;
 
+            SetMap(vm.Latitude, vm.Longitude);
+
+        }
+
+        private void SetMap(double latitude, double longitude)
+        {
+            LocationMap.MoveToRegion(MapSpan.FromCenterAndRadius(new Position(latitude, longitude), Distance.FromMiles(0.3)));
         }
     }
 }

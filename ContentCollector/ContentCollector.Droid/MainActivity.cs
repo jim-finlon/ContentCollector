@@ -1,9 +1,5 @@
-﻿using System;
-using Android.App;
+﻿using Android.App;
 using Android.Content.PM;
-using Android.Runtime;
-using Android.Views;
-using Android.Widget;
 using Android.OS;
 
 namespace ContentCollector.Droid
@@ -24,7 +20,7 @@ namespace ContentCollector.Droid
 
             global::Xamarin.Forms.Forms.Init(this, bundle);
             global::Xamarin.FormsMaps.Init(this, bundle);
-            //FormsPlugin.Iconize.Droid.IconControls.Init();
+
             Microsoft.WindowsAzure.MobileServices.CurrentPlatform.Init();
 
             LoadApplication(new App());
