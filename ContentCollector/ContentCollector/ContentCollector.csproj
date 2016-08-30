@@ -43,6 +43,7 @@
     <Compile Include="Services\DataManager.cs" />
     <Compile Include="Services\GeoCodingService.cs" />
     <Compile Include="Services\IGeoCodingService.cs" />
+    <Compile Include="View\async.cs" />
     <Compile Include="View\LocationDetailPage.xaml.cs">
       <DependentUpon>LocationDetailPage.xaml</DependentUpon>
     </Compile>

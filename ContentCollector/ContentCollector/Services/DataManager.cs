@@ -115,7 +115,7 @@ namespace ContentCollector.Services
             try
             {
                 await _client.SyncContext.PushAsync();
-                await _locationTable.PullAsync("alllocations", _locationTable.CreateQuery());
+                await _locationTable.PullAsync("allLocations", _locationTable.CreateQuery());
             }
             catch (MobileServicePushFailedException exc)
             {
