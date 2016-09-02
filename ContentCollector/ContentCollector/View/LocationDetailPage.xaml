@@ -3,81 +3,97 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
              x:Class="ContentCollector.View.LocationDetailPage">
-  <!--<Label Text="{Binding MainText}" VerticalOptions="Center" HorizontalOptions="Center" />-->
 
-  <ScrollView>
-    <StackLayout Orientation="Vertical" Padding="20">
+  <StackLayout Spacing="10" Padding="5" x:Name="OuterLayout" Orientation="Vertical">
 
-      <Label Text="{Binding Id}"></Label>
+    <ScrollView>
 
-      <Entry x:Name="EntryName"
-             Text="{Binding Name}"
-             HorizontalOptions="FillAndExpand"
-             Placeholder="Name">
-      </Entry>
+      <StackLayout Orientation="Vertical" Padding="10">
 
-      <Entry x:Name="EntryLatitude"
-             Text="{Binding Latitude}"
-             HorizontalOptions="FillAndExpand"
-             Placeholder="Latitude">
-      </Entry>
+        <Label Text="{Binding Id}"></Label>
 
-      <Entry x:Name="EntryLongitude"
-             Text="{Binding Longitude}"
-             HorizontalOptions="FillAndExpand"
-             Placeholder="Longitude">
-      </Entry>
+        <Entry x:Name="EntryName"
+               Text="{Binding Name}"
+               HorizontalOptions="FillAndExpand"
+               Placeholder="Name">
+        </Entry>
 
-      <Entry x:Name="EntryAltitude"
-             Text="{Binding Altitude}"
-             HorizontalOptions="FillAndExpand"
-             Placeholder="Altitude">
-      </Entry>
+        <Entry x:Name="EntryLatitude"
+               Text="{Binding Latitude}"
+               HorizontalOptions="FillAndExpand"
+               Placeholder="Latitude">
+        </Entry>
 
-      <Entry x:Name="EntryGeoLocation"
-             Text="{Binding Geolocation}"
-             HorizontalOptions="FillAndExpand"
-             Placeholder="Geo Loc">
-      </Entry>
+        <Entry x:Name="EntryLongitude"
+               Text="{Binding Longitude}"
+               HorizontalOptions="FillAndExpand"
+               Placeholder="Longitude">
+        </Entry>
 
-      <Label Text="Notes"></Label>
-      <Editor x:Name="EditorNoates"
-              HorizontalOptions="FillAndExpand"
-              HeightRequest="100"
-              Text="{Binding Notes}">
-      </Editor>
-      <StackLayout Orientation="Horizontal">
-        
-        <Button x:Name="BtnSaveLocation"
-                Text="Save Location"
-                Clicked="OnSaveLocation"
-                HorizontalOptions="FillAndExpand">
-        </Button>
+        <Entry x:Name="EntryAltitude"
+               Text="{Binding Altitude}"
+               HorizontalOptions="FillAndExpand"
+               Placeholder="Altitude">
+        </Entry>
 
-        <Button x:Name="BtnGetCurrentLocation"
-                Text="Get Location"
-                Clicked="OnGetCurrentLocation"
-                HorizontalOptions="FillAndExpand"></Button>
+        <Entry x:Name="EntryGeoLocation"
+               Text="{Binding Geolocation}"
+               HorizontalOptions="FillAndExpand"
+               Placeholder="Geo Loc">
+        </Entry>
+
+
       </StackLayout>
 
-      <StackLayout>
-        
-        <maps:Map 
-          x:Name="LocationMap"
-          HeightRequest="480"
-          WidthRequest="480"
-          VerticalOptions="FillAndExpand"
-          HorizontalOptions="FillAndExpand"
-          IsEnabled="True"
-          IsVisible="True"
-          MapType="Hybrid"
-          HasScrollEnabled="True"
-          HasZoomEnabled="True">
-        </maps:Map>
-        
-      </StackLayout>
-    </StackLayout>
+    </ScrollView>
 
-  </ScrollView>
+    <ScrollView>
+
+      <StackLayout Orientation="Vertical" Padding="10">
+
+        <Label Text="Notes"></Label>
+        <Editor x:Name="EditorNoates"
+                HorizontalOptions="FillAndExpand"
+                HeightRequest="100"
+                Text="{Binding Notes}">
+        </Editor>
+        <StackLayout Orientation="Horizontal">
+
+          <Button x:Name="BtnSaveLocation"
+                  Text="Save Location"
+                  Clicked="OnSaveLocation"
+                  HorizontalOptions="FillAndExpand">
+          </Button>
+
+          <Button x:Name="BtnGetCurrentLocation"
+                  Text="Get Location"
+                  Clicked="OnGetCurrentLocation"
+                  HorizontalOptions="FillAndExpand"></Button>
+        </StackLayout>
+
+        <StackLayout>
+
+          <maps:Map
+            x:Name="LocationMap"
+            HeightRequest="480"
+            WidthRequest="480"
+            VerticalOptions="FillAndExpand"
+            HorizontalOptions="FillAndExpand"
+            IsEnabled="True"
+            IsVisible="True"
+            MapType="Hybrid"
+            HasScrollEnabled="True"
+            HasZoomEnabled="True">
+          </maps:Map>
+
+        </StackLayout>
+
+      </StackLayout>
+
+    </ScrollView>
+
+  </StackLayout>
+
+
 
 </ContentPage>

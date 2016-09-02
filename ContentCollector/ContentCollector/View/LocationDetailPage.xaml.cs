@@ -12,6 +12,9 @@ namespace ContentCollector.View
         private readonly DataManager _dataManager;
         private Location vm;
 
+        private double _width = 0;
+        private double _height = 0;
+
         public LocationDetailPage()
         {
             _dataManager = DataManager.DefaultManager;
@@ -30,6 +33,28 @@ namespace ContentCollector.View
             Title = vm.Name;
             InitializeComponent();
             SetMap(location.Latitude, location.Longitude);
+        }
+
+        protected override void OnSizeAllocated(double width, double height)
+        {
+            base.OnSizeAllocated(width, height);
+
+            if (_width != width || _height != height)
+            {
+                _width = width;
+                _height = height;
+
+                if (width > height)
+                {
+                    OuterLayout.Orientation = StackOrientation.Horizontal;
+                }
+                else
+                {
+                    OuterLayout.Orientation = StackOrientation.Vertical;
+                }
+
+            }
+
         }
 
         private async void OnSaveLocation(object sender, EventArgs e)
@@ -60,7 +85,7 @@ namespace ContentCollector.View
             {
                 vm.Name = vm.Geolocation;
             }
-   
+
             await _dataManager.SaveLocationAsync(vm);
 
             BindingContext = vm;

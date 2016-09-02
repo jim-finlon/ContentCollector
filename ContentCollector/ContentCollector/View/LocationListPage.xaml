@@ -19,10 +19,10 @@
                     <Label Text="{Binding Name}" FontSize="20"></Label>
                   </StackLayout>
                   
-                  <StackLayout>
-                    <Label Text="{Binding Latitude}" FontSize="15" TextColor="Blue"></Label>
-                    <Label Text="{Binding Longitude}" FontSize="15" TextColor="Blue"></Label>
-                    <Label Text="{Binding Altitude}" FontSize="15" TextColor="Green"></Label>
+                  <StackLayout Orientation="Horizontal">
+                    <Label Text="{Binding Latitude}" FontSize="10" TextColor="Blue"></Label>
+                    <Label Text="{Binding Longitude}" FontSize="10" TextColor="Blue"></Label>
+                    <Label Text="{Binding Altitude}" FontSize="10" TextColor="Green"></Label>
                   </StackLayout>
                   
                 </StackLayout>
