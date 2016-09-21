@@ -96,6 +96,13 @@ namespace ContentCollector.View
 
         private void SetMap(double latitude, double longitude)
         {
+            var pin = new Pin()
+            {
+                Position = new Position(latitude, longitude),
+                Label = vm.Name
+            };
+
+            LocationMap.Pins.Add(pin);
             LocationMap.MoveToRegion(MapSpan.FromCenterAndRadius(new Position(latitude, longitude), Distance.FromMiles(0.3)));
         }
     }
