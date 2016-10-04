@@ -7,11 +7,11 @@
   IgnorableNamespaces="uap mp">
 
   <Identity
-    Name="26ab49e9-d728-4b82-bb16-b2cf1c6af34d"
+    Name="cd99a5e9-d321-4af7-9c8e-4343172c0a11"
     Publisher="CN=emera"
     Version="1.0.0.0" />
 
-  <mp:PhoneIdentity PhoneProductId="26ab49e9-d728-4b82-bb16-b2cf1c6af34d" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
+  <mp:PhoneIdentity PhoneProductId="cd99a5e9-d321-4af7-9c8e-4343172c0a11" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
   <Properties>
     <DisplayName>ContentCollector.UWP</DisplayName>
