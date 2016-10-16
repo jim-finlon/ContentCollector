@@ -9,7 +9,7 @@
 	<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 	<uses-permission android:name="android.permission.INTERNET" />
 	<application android:label="Content Collector" android:icon="@drawable/icon">
-		<meta-data android:name="com.google.android.geo.API_KEY" android:value="AIzaSyAoJf1Zwv_fDSjsLux6JQ2zIMM3D3iWeDQ" />
+		<meta-data android:name="com.google.android.geo.API_KEY" android:value="AIzaSyChoRWbL0V1ouvBeAbeIfwq3a5DwiH8KKA" />
 		<meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version" />
 	</application>
 </manifest>

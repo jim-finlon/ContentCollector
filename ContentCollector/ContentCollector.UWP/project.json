@@ -1,10 +1,11 @@
 ﻿{
   "dependencies": {
-    "Microsoft.Azure.Mobile.Client": "3.0.1",
-    "Microsoft.Azure.Mobile.Client.SQLiteStore": "3.0.1",
+    "Microsoft.Azure.Mobile.Client": "3.0.3",
+    "Microsoft.Azure.Mobile.Client.SQLiteStore": "3.0.3",
     "Microsoft.NETCore.UniversalWindowsPlatform": "5.2.2",
     "Newtonsoft.Json": "9.0.1",
     "SQLitePCL": "3.8.7.2",
+    "Xam.Plugin.Connectivity": "2.2.12",
     "Xam.Plugin.Geolocator": "3.0.4",
     "Xamarin.Forms": "2.3.2.127",
     "Xamarin.Forms.Maps": "2.3.2.127"

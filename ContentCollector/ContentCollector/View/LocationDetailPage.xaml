@@ -3,12 +3,10 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
              x:Class="ContentCollector.View.LocationDetailPage">
+  <ScrollView>
+    <StackLayout Spacing="10" Padding="5" x:Name="OuterLayout" Orientation="Vertical">
 
-  <StackLayout Spacing="10" Padding="5" x:Name="OuterLayout" Orientation="Vertical">
-
-    <ScrollView>
-
-      <StackLayout Orientation="Vertical" Padding="10">
+      <StackLayout Orientation="Vertical" Padding="5" x:Name="InfoLayout">
 
         <Label Text="{Binding Id}"></Label>
 
@@ -45,11 +43,7 @@
 
       </StackLayout>
 
-    </ScrollView>
-
-    <ScrollView>
-
-      <StackLayout Orientation="Vertical" Padding="10">
+      <StackLayout Orientation="Vertical" Padding="5" x:Name="MapLayout">
 
         <Label Text="Notes"></Label>
         <Editor x:Name="EditorNoates"
@@ -70,13 +64,20 @@
                   Clicked="OnGetCurrentLocation"
                   HorizontalOptions="FillAndExpand"></Button>
         </StackLayout>
+        <StackLayout Orientation="Horizontal">
+          <Button x:Name="BtnGeoLocateCurrent"
+                Text="Rev Geo Code"
+                Clicked="OnReverseGeoCodeLocation"
+                HorizontalOptions="FillAndExpand"></Button>
+
+        </StackLayout>
 
         <StackLayout>
 
           <maps:Map
             x:Name="LocationMap"
-            HeightRequest="480"
-            WidthRequest="480"
+            HeightRequest="300"
+            WidthRequest="300"
             VerticalOptions="FillAndExpand"
             HorizontalOptions="FillAndExpand"
             IsEnabled="True"
@@ -90,10 +91,7 @@
 
       </StackLayout>
 
-    </ScrollView>
-
-  </StackLayout>
-
-
+    </StackLayout>
+  </ScrollView>
 
 </ContentPage>

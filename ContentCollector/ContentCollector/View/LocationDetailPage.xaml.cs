@@ -2,6 +2,7 @@
 using System.Linq;
 using ContentCollector.Model;
 using ContentCollector.Services;
+using Plugin.Connectivity;
 using Xamarin.Forms;
 using Xamarin.Forms.Maps;
 
@@ -47,10 +48,16 @@ namespace ContentCollector.View
                 if (width > height)
                 {
                     OuterLayout.Orientation = StackOrientation.Horizontal;
+                    InfoLayout.WidthRequest = width/2 - 30;
+                    MapLayout.WidthRequest = width/2 + 30;
+
+                    MapLayout.Padding = new Thickness(5, 5, 40, 5);
                 }
                 else
                 {
                     OuterLayout.Orientation = StackOrientation.Vertical;
+
+                    MapLayout.Padding = new Thickness(5, 5, 5, 5);
                 }
 
             }
@@ -76,17 +83,29 @@ namespace ContentCollector.View
             vm.Longitude = results.Longitude;
             vm.Altitude = results.Altitude;
 
-            //Reverse GeoCode Results
-            var reverseResults = await geoService.ReverseGeoCodePosition(results.Latitude, results.Longitude);
+            if (CrossConnectivity.Current.IsConnected)
+            {
+                //Reverse GeoCode Results
+                var reverseResults = await geoService.ReverseGeoCodePosition(results.Latitude, results.Longitude);
 
-            vm.Geolocation = reverseResults.FirstOrDefault();
+                vm.Geolocation = reverseResults.FirstOrDefault();
 
-            if (vm.Name == null)
+                if (vm.Name == null)
+                {
+                    vm.Name = vm.Geolocation;
+                }
+            }
+
+            if (vm.Name == null && vm.Geolocation != null)
             {
                 vm.Name = vm.Geolocation;
             }
+            else if (vm.Name == null)
+            {
+                vm.Name = $"{vm.Latitude} / {vm.Longitude}";
+            }
 
-            await _dataManager.SaveLocationAsync(vm);
+           // await _dataManager.SaveLocationAsync(vm);
 
             BindingContext = vm;
 
@@ -104,6 +123,26 @@ namespace ContentCollector.View
 
             LocationMap.Pins.Add(pin);
             LocationMap.MoveToRegion(MapSpan.FromCenterAndRadius(new Position(latitude, longitude), Distance.FromMiles(0.3)));
+        }
+
+        private async void OnReverseGeoCodeLocation(object sender, EventArgs e)
+        {
+            if (CrossConnectivity.Current.IsConnected)
+            {
+                BindingContext = null;
+                var geoService = new GeoCodingService();
+                var reverseResults = await geoService.ReverseGeoCodePosition(vm.Latitude, vm.Longitude);
+
+                vm.Geolocation = reverseResults.FirstOrDefault();
+
+                if (vm.Name == $"{vm.Latitude} / {vm.Longitude}" || vm.Name == null)
+                {
+                    vm.Name = vm.Geolocation;
+                }
+
+                BindingContext = vm;
+                // await _dataManager.SaveLocationAsync(vm);
+            }
         }
     }
 }
